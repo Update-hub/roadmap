@@ -1,0 +1,13 @@
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function validateString(value , maxSize, minSize) {
+      return value is string &&
+      value.size() <= maxSize &&
+      value.size() >= minSize
+    }
+    match /articles/{articleId} {
+      allow read;
+      allow write: if validateString(request.resource.data.title, 30, 4);
+    }
+  }
+}
