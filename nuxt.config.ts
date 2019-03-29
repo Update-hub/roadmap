@@ -1,6 +1,8 @@
+import NuxtConfiguration from '@nuxt/config'
+
 const pkg = require('./package')
 
-module.exports = {
+const config: NuxtConfiguration = {
   mode: 'spa',
 
   /*
@@ -55,7 +57,7 @@ module.exports = {
     */
     extend(config, ctx) {
       // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
+      if (ctx.isDev && ctx.isClient && config.module) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
@@ -66,3 +68,5 @@ module.exports = {
     }
   }
 }
+
+export default config

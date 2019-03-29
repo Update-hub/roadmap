@@ -6,7 +6,7 @@
         roadmap
       </h1>
       <h2 class="subtitle">
-        roadmap project
+        roadmap project {{ test }}
       </h2>
       <div class="links">
         <a
@@ -24,12 +24,19 @@
   </section>
 </template>
 
-<script>
+<script lang="ts">
 import Logo from '~/components/Logo.vue'
 
 export default {
   components: {
     Logo
+  },
+  computed: {
+    test: function () {
+      let d: number = 123
+      d = d * 2
+      return d + 'ABC'
+    }
   }
 }
 </script>
