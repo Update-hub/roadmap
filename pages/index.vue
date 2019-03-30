@@ -2,34 +2,50 @@
   <section class="container">
     <div>
       <logo />
-      <h1 class="title">
-        roadmap
-      </h1>
-      <h2 class="subtitle">
-        roadmap project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >GitHub</a>
+      <p>{{ animal }}</p>
+      <div v-for="(roadmap, index) in roadmaps" :key="index">
+        <p>{{ roadmap.title }}</p>
       </div>
     </div>
   </section>
 </template>
 
-<script>
+<script lang="ts">
 import Logo from '~/components/Logo.vue'
+import { Component, Vue } from 'vue-property-decorator'
 
-export default {
+interface RoadmapCard {
+  title: string;
+  description: string;
+  thumbnailURL: string;
+  reviewScore: number;
+  lastUpdate: number;
+  isEditable: number;
+}
+
+@Component({
   components: {
     Logo
+  }
+})
+export default class FeedPage extends Vue {
+  animal = 1111
+  roadmaps: RoadmapCard[] = [
+    {
+      title: 'タイトル',
+      description: 'string',
+      thumbnailURL: 'string',
+      reviewScore: 11,
+      lastUpdate: 11,
+      isEditable: 11
+    }
+  ];
+
+  mounted() {
+    setInterval(() => {
+      this.animal = Date.now()
+    }, 1000)
+    console.log(this.roadmaps[0])
   }
 }
 </script>

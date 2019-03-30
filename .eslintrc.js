@@ -5,13 +5,14 @@ module.exports = {
     node: true
   },
   parserOptions: {
-    parser: 'babel-eslint'
+    parser: '@typescript-eslint/parser'
   },
   extends: [
     '@nuxtjs'
   ],
   plugins: [
-    'prettier'
+    'prettier',
+    '@typescript-eslint'
   ],
   // add your custom rules here
   rules: {
