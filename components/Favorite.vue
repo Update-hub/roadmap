@@ -5,17 +5,18 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue, Prop, Emit } from 'vue-property-decorator'
 
 @Component
 export default class Favorite extends Vue {
-  @Prop({ type: Boolean, required: true }) status!: boolean;
+  @Prop({ type: Boolean, required: true }) readonly status!: boolean;
 
   isFavorite = this.status;
 
+  @Emit()
   changeStatus() {
     this.isFavorite = !this.isFavorite
-    this.$emit('changeStatus', this.isFavorite)
+    return this.isFavorite
   }
 }
 </script>

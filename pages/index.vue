@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <div>
-      <favorite :status="true" @changeStatus="toggleFavorite" />
+      <favorite :status="true" @change-status="toggleFavorite" />
       <logo />
       <p>{{ animal }}</p>
       <div v-for="(roadmap, index) in roadmaps" :key="index">
