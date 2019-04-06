@@ -1,8 +1,22 @@
 <template>
   <div>
     <nuxt />
+    <r-footer />
   </div>
 </template>
+
+<script lang="ts">
+import rFooter from '~/components/Footer.vue'
+import { Component, Vue } from 'vue-property-decorator'
+
+@Component({
+  components: {
+    rFooter
+  }
+})
+export default class DefaultLayout extends Vue {
+}
+</script>
 
 <style>
 html {

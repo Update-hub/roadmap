@@ -1,6 +1,7 @@
 <template>
   <section class="container">
     <div>
+      <favorite :status="true" @change-status="toggleFavorite" />
       <logo />
       <p>{{ animal }}</p>
       <div v-for="(roadmap, index) in roadmaps" :key="index">
@@ -26,6 +27,7 @@
 <script lang="ts">
 import Logo from '~/components/Logo.vue'
 import Dialog from '~/components/Dialog.vue'
+import Favorite from '~/components/Favorite.vue'
 import { Component, Vue } from 'vue-property-decorator'
 
 interface RoadmapCard {
@@ -41,6 +43,7 @@ interface RoadmapCard {
   components: {
     Logo,
     Dialog
+    Favorite
   }
 })
 export default class FeedPage extends Vue {
@@ -57,11 +60,8 @@ export default class FeedPage extends Vue {
   ];
   showModal = false
 
-  mounted() {
-    setInterval(() => {
-      this.animal = Date.now()
-    }, 1000)
-    console.log(this.roadmaps[0])
+  toggleFavorite($event) {
+    console.log($event)
   }
 }
 </script>
