@@ -42,7 +42,7 @@ interface RoadmapCard {
 @Component({
   components: {
     Logo,
-    Dialog
+    Dialog,
     Favorite
   }
 })
