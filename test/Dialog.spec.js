@@ -7,22 +7,16 @@ describe('Dialog', () => {
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 
-  test('closeクリックした後閉じる', () => {
+  test('closeボタンをクリックすると親コンポーネントにcloseイベントが発行される', () => {
     const wrapper = mount(Dialog)
     wrapper.find('.modal__close').trigger('click')
-    setTimeout(() => {
-      expect(wrapper.find('.modal-mask')).toBeFalsy()
-      expect(wrapper.find('.modal-wrapper')).toBeFalsy()
-    }, 500)
+    expect(wrapper.emitted().close).toBeTruthy()
   })
 
-  test('モーダルの外をクリックした後閉じる', () => {
+  test('モーダルの外をクリックすると親コンポーネントにcloseイベントが発行される', () => {
     const wrapper = mount(Dialog)
     wrapper.find('.modal-mask').trigger('click')
-    setTimeout(() => {
-      expect(wrapper.find('.modal-mask')).toBeFalsy()
-      expect(wrapper.find('.modal-wrapper')).toBeFalsy()
-    }, 500)
+    expect(wrapper.emitted().close).toBeTruthy()
   })
 
   test('content slotの内容が反映される', () => {
