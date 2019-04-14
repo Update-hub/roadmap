@@ -17,7 +17,7 @@ export default class Favorite extends Vue {
 
   @Emit()
   changeStatus() {
-    return this.isFavorite
+    return !this.isFavorite
   }
 }
 </script>
