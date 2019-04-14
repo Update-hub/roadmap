@@ -11,15 +11,17 @@ describe('Dialog', () => {
     const wrapper = mount(Dialog)
     wrapper.find('.modal__close').trigger('click')
     setTimeout(() => {
-      expect(wrapper.find('.modal-mask')).toBefalsy()
+      expect(wrapper.find('.modal-mask')).toBeFalsy()
+      expect(wrapper.find('.modal-wrapper')).toBeFalsy()
     }, 500)
   })
 
   test('モーダルの外をクリックした後閉じる', () => {
     const wrapper = mount(Dialog)
-    wrapper.find('.modal-outside').trigger('click')
+    wrapper.find('.modal-mask').trigger('click')
     setTimeout(() => {
-      expect(wrapper.find('.modal-mask')).toBefalsy()
+      expect(wrapper.find('.modal-mask')).toBeFalsy()
+      expect(wrapper.find('.modal-wrapper')).toBeFalsy()
     }, 500)
   })
 
