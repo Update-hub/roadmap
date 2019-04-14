@@ -55,7 +55,7 @@ module.exports = {
     */
     extend(config, ctx) {
       if (ctx.isDev) {
-        config.devtool = "inline-cheap-module-source-map"
+        config.devtool = 'inline-cheap-module-source-map'
       }
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
