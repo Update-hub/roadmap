@@ -7,11 +7,25 @@
       <div v-for="(roadmap, index) in roadmaps" :key="index">
         <p>{{ roadmap.title }}</p>
       </div>
+
+      <button @click="showModal = true">
+        Show Modal
+      </button>
+
+      <Dialog v-if="showModal" @close="showModal = false">
+        <template v-slot:content>
+          <p>test</p>
+        </template>
+        <template v-slot:close>
+          閉じる
+        </template>
+      </Dialog>
     </div>
   </section>
 </template>
 
 <script lang="ts">
+import Dialog from '~/components/Dialog.vue'
 import Favorite from '~/components/Favorite.vue'
 import { Component, Vue } from 'vue-property-decorator'
 
@@ -26,6 +40,7 @@ interface RoadmapCard {
 
 @Component({
   components: {
+    Dialog,
     Favorite
   }
 })
@@ -41,6 +56,7 @@ export default class FeedPage extends Vue {
       isEditable: 11
     }
   ];
+  showModal = false
 
   toggleFavorite($event) {
     console.log($event)
