@@ -11,12 +11,13 @@ import { Component, Vue, Prop, Emit } from 'vue-property-decorator'
 export default class Favorite extends Vue {
   @Prop({ type: Boolean, required: true }) readonly status!: boolean;
 
-  isFavorite = this.status;
+  get isFavorite(): boolean {
+    return this.status
+  }
 
   @Emit()
   changeStatus() {
-    this.isFavorite = !this.isFavorite
-    return this.isFavorite
+    return !this.isFavorite
   }
 }
 </script>
