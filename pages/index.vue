@@ -12,7 +12,6 @@
 </template>
 
 <script lang="ts">
-import Logo from '~/components/Logo.vue'
 import Favorite from '~/components/Favorite.vue'
 import { Component, Vue } from 'vue-property-decorator'
 
@@ -27,7 +26,6 @@ interface RoadmapCard {
 
 @Component({
   components: {
-    Logo,
     Favorite
   }
 })
