@@ -37,7 +37,7 @@
   z-index: 9998;
   top: 50%;
   left: 50%;
-  transform: translateY(-50%) translateX(-50%) translateZ(999px);
+  transform: translate3d(-50%, -50%, 999px);
 }
 
 .modal {
