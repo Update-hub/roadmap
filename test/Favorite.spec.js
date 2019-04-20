@@ -29,7 +29,7 @@ describe('Favorite', () => {
     expect(wrapper.text()).toBe('お気に入りに追加')
   })
 
-  test('ステータスが切り替えられること', () => {
+  test('ステータス変更イベントが飛ぶこと', () => {
     const wrapper = mount(Favorite, {
       propsData: {
         status: false
@@ -37,6 +37,6 @@ describe('Favorite', () => {
     })
     expect(wrapper.vm.isFavorite).toBeFalsy()
     wrapper.trigger('click')
-    expect(wrapper.vm.isFavorite).toBeTruthy()
+    expect(wrapper.emitted()['change-status'][0][0]).toBe(true)
   })
 })
